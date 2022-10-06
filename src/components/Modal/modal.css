@@ -14,7 +14,7 @@ img {
   border-radius: 20px;
 }
 
-.mert {
+.modal_active {
   width: 500px;
   height: 500px;
   margin: 0 auto;
@@ -27,8 +27,21 @@ img {
   z-index: 999;
 }
 
-.deneme {
+.modal-wrapper {
   position: relative;
+}
+
+.close-modal {
+  color: #fff;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: var(--orange);
 }
 
 .next {

@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./productslider.css";
 import images from "../../ProductImages";
 import Modal from "../Modal/Modal";
-import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
 
 function ProductSlider() {
   const [selected, setSelected] = useState(images[0]);
@@ -13,7 +12,7 @@ function ProductSlider() {
       <div className="product-container">
         <>
           <div>
-            {click && <Modal />}
+            {click && <Modal setClick={setClick} />}
 
             <img
               src={selected}
