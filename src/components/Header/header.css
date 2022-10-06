@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.navbar {
+  padding: 20px;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-items {
+  display: flex;
+  list-style-type: none;
+  margin-left: 50px;
+  color: var(--grayishblue);
+}
+
+.nav-item {
+  padding: 0 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-item:hover {
+  width: 100%;
+
+  color: var(--darkblue);
+}
+
+.nav-item::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+
+.nav-item:hover::after {
+  position: absolute;
+  top: 43px;
+  border-bottom: 3px solid orange;
+  transition-timing-function: ease;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-cart {
+  position: absolute;
+}
+
+.cart-item {
+  position: relative;
+  top: -10px;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  margin-right: 30px;
+}
+
+.cart-item.empty {
+  background-color: transparent;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar:hover {
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .nav-items {
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    flex-direction: column;
+    z-index: 5;
+    box-shadow: 0 0 0 5000px rgb(0 0 0 / 75%);
+  }
+  .nav-items.menu {
+    position: fixed;
+    left: -500%;
+    background-color: red !important;
+    box-shadow: none;
+  }
+  .hamburger {
+    display: block;
+    margin-right: 10px;
+    z-index: 7;
+  }
+}

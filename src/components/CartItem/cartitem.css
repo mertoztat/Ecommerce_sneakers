@@ -1,0 +1,32 @@
+li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 20px 10px;
+}
+
+li img {
+  height: 100%;
+  width: 100px;
+  object-fit: cover;
+}
+
+.cart_desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartSpan {
+  margin-left: 20px;
+  display: flex;
+}
+
+.cartSpan span {
+  font-weight: 700;
+}
+
+.cartSpan img {
+  width: 15px;
+  height: 15px;
+  margin-left: 110px;
+}
