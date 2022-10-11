@@ -9,7 +9,9 @@ import fabars from "../../images/icon-menu.svg";
 import close from "../../images/icon-close.svg";
 
 function Header() {
-  const { cartItems, showHideCart } = useContext(CartContext);
+  const { productState } = useContext(CartContext);
+
+  console.log("cartItems", productState.cart);
 
   const [clicked, setClicked] = useState(false);
 
@@ -46,19 +48,15 @@ function Header() {
             src={cart}
             alt="cart"
           />
-          {cartItems.length === 0 ? (
-            <span className="cart-item empty">{cartItems}</span>
+          {productState.cart.length === 0 ? (
+            <span className="cart-item empty">{productState.cart}</span>
           ) : (
-            <span className="cart-item">{cartItems.length}</span>
+            <span className="cart-item">{productState.cart.length}</span>
           )}
-          {/* <span className="cart-item">{cartItems.length}</span> */}
           <img className="avatar" src={avatar} alt="" />
         </div>
       </nav>
       {showModal && <Cart />}
-      {/* <div>
-        <Cart showModal={showModal} toggleCart={toggleCart} />
-      </div> */}
     </header>
   );
 }

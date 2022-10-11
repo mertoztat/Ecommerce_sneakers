@@ -4,9 +4,7 @@ import { useContext } from "react";
 import CartContext from "../../context/cart/CartContext";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
-
-  console.log("idididi", cartItems.id);
+  const { productState } = useContext(CartContext);
 
   return (
     <>
@@ -14,13 +12,13 @@ const Cart = () => {
         <div className="cartModal">
           <h4>Cart</h4>
           <hr />
-          {cartItems.length === 0 ? (
+          {productState.cart.length === 0 ? (
             <p className="empty-cart">Your cart is empty.</p>
           ) : (
             <div>
-              {cartItems.map((item) => (
-                <ul>
-                  <CartItem key={item.id} item={item} />
+              {productState.cart.map((item, index) => (
+                <ul key={index}>
+                  <CartItem item={item} />
                 </ul>
               ))}
             </div>

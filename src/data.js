@@ -1,6 +1,6 @@
 import productImg1 from "./images/image-product-1.jpg";
 
-const productData = [
+const data = [
   {
     id: 1,
     img: productImg1,
@@ -12,4 +12,4 @@ const productData = [
     discount_percentage: 50,
   },
 ];
-export default productData;
+export default data;

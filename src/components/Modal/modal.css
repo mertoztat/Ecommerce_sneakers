@@ -25,6 +25,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+  max-width: 100%;
 }
 
 .modal-wrapper {
@@ -95,12 +96,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  .modal-container {
-    max-width: 100%;
-    width: 100%;
-  }
-  .modal-container .selected {
-    width: 100%;
-    border-radius: 0;
+  .modal_active {
+    display: none;
   }
 }

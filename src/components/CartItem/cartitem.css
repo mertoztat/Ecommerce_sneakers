@@ -17,8 +17,10 @@ li img {
 }
 
 .cartSpan {
-  margin-left: 20px;
+  margin: 0 15px;
   display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .cartSpan span {

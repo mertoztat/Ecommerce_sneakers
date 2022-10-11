@@ -1,36 +1,23 @@
 import "./productdetail.css";
+import data from "../../data";
 import { useContext, useState } from "react";
 import minus from "../../images/icon-minus.svg";
 import plus from "../../images/icon-plus.svg";
 import cart from "../../images/icon-cart-white.svg";
 import CartContext from "../../context/cart/CartContext";
 
-function ProductDetail({ product }) {
-  const { showCart, cartItems, showHideCart, addToCart, count, setCount } =
+function ProductDetail() {
+  const { productState, addToCart, decrease, increase } =
     useContext(CartContext);
 
-  const increase = () => {
-    setCount((prevCount) => count + 1);
-  };
+  console.log("productState: ", productState);
 
-  const decrease = () => {
-    if (count > 0) {
-      setCount((prevCount) => count - 1);
-    } else {
-      return count;
-    }
-  };
+  const [count, setCount] = useState(1);
 
-  const handleCart = (e, count) => {
-    [...Array(count)].map(() => {
-      return addToCart(e);
-    });
-  };
-
-  return (
-    <div className="detail-container">
+  return productState.productList.map((product) => (
+    <div key={product.id} className="detail-container">
       <div className="detail-content">
-        <div key={product.id}>
+        <div>
           <h4>SNEAKER COMPANY</h4>
           <h1>{product.title}</h1>
           <p>{product.description}</p>
@@ -42,14 +29,18 @@ function ProductDetail({ product }) {
           </div>
           <div className="count-cart">
             <div className="count">
-              <img src={minus} alt="" onClick={decrease} />
+              <img
+                onClick={() => setCount(count - 1 <= 1 ? 1 : count - 1)}
+                src={minus}
+                alt=""
+              />
               <span>{count}</span>
-              <img src={plus} alt="" onClick={increase} />
+              <img onClick={() => setCount(count + 1)} src={plus} alt="" />
             </div>
             <div className="addcart">
               <button
                 className="cart"
-                onClick={() => handleCart(product, count)}
+                onClick={() => addToCart(product, count)}
               >
                 <img src={cart} alt="" />
                 Add to Cart
@@ -59,7 +50,7 @@ function ProductDetail({ product }) {
         </div>
       </div>
     </div>
-  );
+  ));
 }
 
 export default ProductDetail;

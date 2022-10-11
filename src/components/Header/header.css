@@ -35,7 +35,6 @@
 
 .nav-item:hover {
   width: 100%;
-
   color: var(--darkblue);
 }
 
@@ -50,7 +49,7 @@
 
 .nav-item:hover::after {
   position: absolute;
-  top: 43px;
+  top: 53px;
   border-bottom: 3px solid orange;
   transition-timing-function: ease;
 }

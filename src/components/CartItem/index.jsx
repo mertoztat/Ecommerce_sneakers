@@ -4,9 +4,7 @@ import CartContext from "../../context/cart/CartContext";
 import trash from "../../images/icon-delete.svg";
 
 const CartItem = ({ item }) => {
-  const { removeItem } = useContext(CartContext);
-
-  const productId = item.id;
+  const { removeCart } = useContext(CartContext);
 
   return (
     <li>
@@ -14,9 +12,9 @@ const CartItem = ({ item }) => {
       <div className="cart_desc">
         <h4 className="cart_title">{item.title}</h4>
         <p className="cartSpan">
-          {`$ ${item.price} * 3 `}
-          <span>${item.price * 4}</span>
-          <img onClick={() => removeItem(productId)} src={trash} alt="" />
+          {` ${item.price} * ${item.count} `}
+          <span>${item.price * item.count}</span>
+          <img src={trash} alt="" onClick={() => removeCart(item.id)} />
         </p>
       </div>
     </li>
