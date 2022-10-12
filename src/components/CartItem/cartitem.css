@@ -3,6 +3,7 @@ li {
   display: flex;
   align-items: center;
   margin: 20px 10px;
+  width: 100%;
 }
 
 li img {
@@ -31,4 +32,29 @@ li img {
   width: 15px;
   height: 15px;
   margin-left: 110px;
+}
+
+.cart_btn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.btn_checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  background-color: var(--orange);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
 }
