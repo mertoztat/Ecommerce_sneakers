@@ -1,18 +1,12 @@
 import "./productdetail.css";
-import data from "../../data";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import minus from "../../images/icon-minus.svg";
 import plus from "../../images/icon-plus.svg";
 import cart from "../../images/icon-cart-white.svg";
 import CartContext from "../../context/cart/CartContext";
 
 function ProductDetail() {
-  const { productState, addToCart, decrease, increase } =
-    useContext(CartContext);
-
-  console.log("productState: ", productState);
-
-  const [count, setCount] = useState(1);
+  const { productState, addToCart, count, setCount } = useContext(CartContext);
 
   return productState.productList.map((product) => (
     <div key={product.id} className="detail-container">

@@ -11,8 +11,6 @@ import close from "../../images/icon-close.svg";
 function Header() {
   const { productState } = useContext(CartContext);
 
-  console.log("cartItems", productState.cart);
-
   const [clicked, setClicked] = useState(false);
 
   const hamburgerMenu = () => {
@@ -20,10 +18,6 @@ function Header() {
   };
 
   const [showModal, setShowModal] = useState(false);
-
-  const toggleCart = () => {
-    setShowModal(!showModal);
-  };
 
   return (
     <header className="header">
@@ -43,7 +37,7 @@ function Header() {
         </div>
         <div className="nav-right">
           <img
-            onClick={toggleCart}
+            onClick={() => setShowModal(!showModal)}
             className="nav-cart"
             src={cart}
             alt="cart"

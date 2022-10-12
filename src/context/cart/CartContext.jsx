@@ -27,27 +27,7 @@ export function CartProvider({ children }) {
       cart: productState.cart.filter((cartItem) => cartItem.id !== id),
     });
 
-  const increase = (id, number) => {
-    setProductState({
-      ...productState,
-      cart: productState.cart.map((cartItem) =>
-        cartItem.id === id
-          ? { ...cartItem, count: cartItem.count + number }
-          : cartItem
-      ),
-    });
-  };
-
-  const decrease = (id) => {
-    setProductState({
-      ...productState,
-      cart: productState.cart.map((cartItem) =>
-        cartItem.id === id
-          ? { ...cartItem, count: cartItem.count > 1 ? cartItem.count - 1 : 1 }
-          : cartItem
-      ),
-    });
-  };
+  const [count, setCount] = useState(1);
 
   return (
     <CartContext.Provider
@@ -55,8 +35,8 @@ export function CartProvider({ children }) {
         productState: productState,
         addToCart,
         removeCart,
-        increase,
-        decrease,
+        count,
+        setCount,
       }}
     >
       {children}
